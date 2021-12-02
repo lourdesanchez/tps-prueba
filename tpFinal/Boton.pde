@@ -2,34 +2,37 @@ class Boton{
   
   //atributos
   String txt;
-  color fillTxt;
-  int posX, posY, tamX, tamY;
+  color fillTxt,fillRect ;
+  int posX, posY, tamX, tamY, tamTxt;
   
   
   //constructores
-  Boton(String txt_, color _fillTxt, int posX_, int posY_, int tamX_, int tamY_){
+  Boton(color fillRect_, String txt_,int tamTxt_, color _fillTxt, int posX_, int posY_, int tamX_, int tamY_){
    
     this.txt = txt_;
+    this.tamTxt= tamTxt_;
     this.fillTxt = _fillTxt;
     this.posX = posX_;
     this.posY = posY_;
     this.tamX = tamX_;
     this.tamY = tamY_;
   
+   this.fillRect = fillRect_;
+   
   }
   
   
   //metodos
   void dibujar(){
     if (mouseX>this.posX && mouseX<this.posX + this.tamX && mouseY>this.posY && mouseY<this.posY + this.tamY){
-      fill(#B7AD74, 150);
+      fill(this.fillRect, 150); //#B7AD74
     }else{
-      fill(#837C52, 100);
+      fill(this.fillRect, 100); //#837C52
     }
     rect(this.posX, this.posY, this.tamX, this.tamY, 5);
-  //textAlign(CENTER);
-   fill(fillTxt);
-   textSize(20);
+  
+   fill(this.fillTxt);
+   textSize(this.tamTxt);
    text(txt,this.posX+30, this.posY+30 );
   }
   
@@ -43,7 +46,5 @@ class Boton{
   }
  
   
-  void teclaPresionada(){
-    
-  }
+ 
 }
