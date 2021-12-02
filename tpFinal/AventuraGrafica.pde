@@ -20,9 +20,9 @@ class AventuraGrafica {
 
     this.botonComenzar = new Boton(#B7AD74, "Comenzar",20, 0, 180, 250, 140, 50);
     this.botonCreditos = new Boton(#B7AD74, "Creditos",20, 0, 180, 350, 140, 50);
-    this.botonReiniciar = new Boton( #76B477, "Reiniciar", 20, 0, 360, 440, 150, 40);
-    this.botonConfesar = new Boton( #58AF8F,"ir a confesar\nal castillo", 15, 0, 380, 450, 120, 50);
-    this.botonBosque = new Boton(#5889AF, "Huir al\nbosque",15, 0, 10, 450, 120, 50);
+    this.botonReiniciar = new Boton(#CE9455, "Reiniciar", 20, 0, 340, 450, 150, 40);
+    this.botonConfesar = new Boton( #58AF8F,"ir a confesar al\ncastillo", 13, 0, 340, 430, 150, 50);
+    this.botonBosque = new Boton(#5889AF, "Huir al bosque",13, 0, 10, 430, 150, 50);
 
     for (int i=0; i<cantPantallas; i++) {
       
@@ -49,11 +49,11 @@ class AventuraGrafica {
       this.pantalla[17] = new Pantalla(22, 500, 350, "Blancanieves estaba adesesperada, habia cometido un delito que podía\ncostarle su libertad, pero todo había sido en defensa propia.\nEntonces pensó que tal vez dialogando podría llegar a un acuerdo.\n¿Cuál de las opciones es la mejor?", 13, 10, 368  );
      
       this.pantalla[18] = new Pantalla(15, 500, 420, "Blancanieves va a confesar al castillo lo que había hecho, pero sin\npruebas suficiente y manchada de sangre no le creyeron.", 13, 10, 450 );
-      this.pantalla[19] = new Pantalla(19, 500, 400, "Fue llevada a juicio y condenada a cadena perpetua. Ahora tenia\nque pasar toda su vida dentro de un calabozo por un crimen que\nfue obligada a cometer, todo por culpa de los celos de la reina.", 13, 10, 430 );
+      this.pantalla[19] = new Pantalla(19, 500, 400, "Fue llevada a juicio y condenada a cadena perpetua. Ahora tenia\nque pasar toda su vida dentro de un calabozo por un crimen que\nfue obligada a cometer, todo por culpa de los celos de la reina.", 13, 10, 440 );
       this.pantalla[20] = new Pantalla(20, 500, 430, "FIN", 20, 10, 470);
 
       //EMPIEZA HISTORIA ALTERNA 2
-      this.pantalla[21] = new Pantalla(16, 500, 430, "Blancanieves huye hacia en bosque toda manchada de sangre, ya no\npodía volver a su hogar por más que quisiera, porque sabía\nque nadie le iba creer.", 13, 10, 450   );
+      this.pantalla[21] = new Pantalla(16, 500, 430, "Blancanieves huye hacia en bosque toda manchada de sangre, ya no\npodía volver a su hogar por más que quisiera, porque sabía que\nnadie le iba creer.", 13, 10, 450   );
       this.pantalla[22] = new Pantalla(18, 500, 430, "No tenia otra opción más que vagar por el bosque durante el resto\nde sus días o hasta que encontrara una solución... ", 13, 10, 460 );
       this.pantalla[23] = new Pantalla(21, 500, 430, "FIN", 20, 10, 470   );
    }
@@ -140,6 +140,10 @@ class AventuraGrafica {
       this.botonReiniciar.dibujar();
      }
     
+    else if(this.estado.equals("creditos")){
+      this.creditos.dibujar();
+      //this.creditos.cambiarPantalla();
+    }
   }
 
 //CAMBIO DE PANTALLA POR DECISIÓN TOMADA
@@ -165,27 +169,32 @@ class AventuraGrafica {
     else if(this.estado.equals("pantalla15") && this.botonReiniciar.mouseSobreBoton()){
       this.estado = "inicioAventura";
       this.juego = new Juego();
-     // this.juego.dibujar();
-      this.juego.contador=0;
-      //this.juego.perder=false;
+     
+      //this.juego.contador=0;
     }
     
      //REINICIO H2
     else if(this.estado.equals("pantalla20") && this.botonReiniciar.mouseSobreBoton()){
       this.estado = "inicioAventura";
       this.juego = new Juego();
-     // this.juego.dibujar();
-      this.juego.contador=0;
-      //this.juego.perder=false;
+     
+      //this.juego.contador=0;
     }
     
      //REINICIO H2
     else if(this.estado.equals("pantalla23") && this.botonReiniciar.mouseSobreBoton()){
       this.estado = "inicioAventura";
       this.juego = new Juego();
-     // this.juego.dibujar();
-      this.juego.contador=0;
-      //this.juego.perder=false;
+     
+      //this.juego.contador=0;
+    }
+    
+      //REINICIO CREDITOS
+    else if(this.creditos.pantalla==9 && this.creditos.botonReinicio.mouseSobreBoton()){
+      this.estado = "inicioAventura";
+      this.juego = new Juego();
+      this.creditos = new Creditos();
+     // this.juego.contador=0;
     }
     
     

@@ -25,7 +25,6 @@ class J_Pantalla {
     background(fondo);
     fill(_colorTexto);
     textSize(20);
-    //textAlign(this.txtCentrado);
     text(this.texto, 30, 150);
   }
 }

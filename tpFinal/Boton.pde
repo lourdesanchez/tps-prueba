@@ -29,9 +29,9 @@ class Boton{
     }else{
       fill(this.fillRect, 100); //#837C52
     }
-    rect(this.posX, this.posY, this.tamX, this.tamY, 5);
+   rect(this.posX, this.posY, this.tamX, this.tamY, 5);
   
-   fill(this.fillTxt);
+   fill(this.fillTxt);//0
    textSize(this.tamTxt);
    text(txt,this.posX+30, this.posY+30 );
   }
